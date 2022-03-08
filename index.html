@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2</title>
+    <script>
+        function getDateInfo() {
+        let days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+        let months = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"];
+
+        let userDate = new Date(prompt("Введите дату в формате: Месяц.День.Год(06.14.1994)"));
+
+        function getWeekOfMonth() {
+            let adjustedDate = userDate.getDate()+ userDate.getDay();
+            let prefixes = ['0', '1', '2', '3', '4', '5'];
+                return (parseInt(prefixes[0 | adjustedDate / 7])+1);
+        }
+
+        let fullDate = days[userDate.getDay()] + ", " + getWeekOfMonth() + " неделя " + months[userDate.getMonth()] + 
+                " " + userDate.getFullYear() + " года ";
+        document.write(fullDate); // Сегодня: 18 Август 2015, Вторник
+        }
+    </script>
+</head>
+<body onload="getDateInfo()">
+    
+</body>
+</html>
